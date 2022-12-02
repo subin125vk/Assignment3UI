@@ -12,13 +12,17 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.servlet.ModelAndView;
 
+import com.example.Assignment3.Entity.GenderEntity;
 import com.example.Assignment3.Entity.SalutationEntity;
 import com.example.Assignment3.Service.Assignment3Service;
+import com.example.Assignment3.Service.GenderService;
 
 @RestController
 public class Assignment3Controller {
 	@Autowired
 	Assignment3Service assignment3Service;
+	@Autowired
+	GenderService genderService;
 
 	@RequestMapping(value = "/", method = RequestMethod.GET)
 	public ModelAndView loginform() {
@@ -27,24 +31,13 @@ public class Assignment3Controller {
 		return model;
 	}
 
-	@PostMapping("/addsalutation")
-	public String addSalutationMst(@RequestBody SalutationEntity salutationEntity) {
-		if (salutationEntity.getCode() == null || salutationEntity.getName() == null) {
-			return "Code or Name can not be null";
-		} else if (salutationEntity.getCode() == "" || salutationEntity.getName() == "") {
-			return "Value required";
-
-		} else if (salutationEntity.isActiveyn() == null) {
-			return "Status need to be true or false";
-		} else if (salutationEntity.getGenderid() == null) {
-			return "Gender id cannot be null";
-		}
-
-		else {
+	@PostMapping("/addSalutation")
+	public String addSalutationMst(@RequestBody SalutationEntity salutationEntity) {	
 			assignment3Service.addSalutationMst(salutationEntity);
-			return "Saved";
+			return "saved";
+		
 		}
-	}
+	
 
 	@GetMapping("/updatesalutation/{id}")
 	public String updateSalutationMst(@RequestBody SalutationEntity salutationEntity) {
@@ -72,7 +65,16 @@ public class Assignment3Controller {
 	@RequestMapping(value = "/listdetails", method = RequestMethod.GET)
 	public List<SalutationEntity> getAllSalutationMst() {
 		List<SalutationEntity> salList = (List<SalutationEntity>) assignment3Service.getAllSalutationMst();
+		System.out.println(salList);
 		return salList;
+
+	}
+
+	@RequestMapping(value = "/listgenderdetails", method = RequestMethod.GET)
+	public List<GenderEntity> getAllGenderMst() {
+		List<GenderEntity> genderList = (List<GenderEntity>) genderService.getAllGenderMst();
+		
+		return genderList;
 	}
 
 	@GetMapping("/delete/{id}")

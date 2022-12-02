@@ -24,13 +24,13 @@ input[type=text], input[type=number] {
 	display: inline-block;
 }
 
-.cancelbtn {
+/* .cancelbtn {
 	width: auto;
 	padding: 10px 18px;
 	margin: 10px 5px;
-}
+} */
 
-.submitbtn {
+.btn {
 	width: auto;
 	padding: 10px 18px;
 	margin: 10px 5px;
@@ -38,36 +38,43 @@ input[type=text], input[type=number] {
 </style>
 <script type="text/javascript"
 	src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>
+		
+<!-- <script type="text/javascript">
+$(document).ready(function(){
+	
+	    alert("AAAABBBCCCC"); 
+	});
+	
+</script> -->
 
 </head>
 <body>
-	<form action="/load"></form>
+	<form action="/addSalutation"></form>
 	Code:
-	<input type="text" name="code">
+	<input type="text" name="code" id="code">
 	<br> Name:
-	<input type="text" name="name">
+	<input type="text" name="name" id="name">
 	<br>
 	<label for="Gender">Choose your Gender</label>
 
 	<select name="genderid" id="genderid">
-		<option value=""></option>
-		<option value=""></option>
-		<option value=""></option>
+<!-- 	<option value=""></option>
+ -->		
 	</select>
 	<br>
 	<br>
 
 	<label for="active">Active</label>
-	<input type="radio" name="activeyn" value="active">
+	<input type="radio" name="activeyn" id="activeyn" value="active">
 	<label for="inactive">Inactive</label>
-	<input type="radio" name="activeyn" value="inactive">
+	<input type="radio" name="activeyn" id="activeyn" value="inactive">
 	<br>
 	<br>
-	<button type="submit" class="submitbtn">Submit</button>
-	<button type="reset" class="cancelbtn">Cancel</button>
-	<button type="submit" class="submitbtn">Search</button>
-	<button type="submit" class="submitbtn">Delete</button>
+	<button type="submit" class="btn" id="savebtn">Submit</button>
+	<button type="reset" class="btn" id="cancelbtn">Cancel</button>
+	<button type="submit" class="btn" id="searchbtn">Search</button>
+	<button type="submit" class="btn" id="deletebtn">Delete</button>
 
-	<script type="text/javascript" src="Home.js"></script>
+	<script type="text/javascript" src="js/Home.js"></script>
 </body>
 </html>

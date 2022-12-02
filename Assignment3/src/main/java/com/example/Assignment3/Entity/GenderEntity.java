@@ -45,4 +45,16 @@ public class GenderEntity {
 		this.name = name;
 	}
 
+	public GenderEntity() {
+		super();
+		// TODO Auto-generated constructor stub
+	}
+
+	public GenderEntity(long genderid, String code, String name) {
+		super();
+		this.genderid = genderid;
+		this.code = code;
+		this.name = name;
+	}
+
 }

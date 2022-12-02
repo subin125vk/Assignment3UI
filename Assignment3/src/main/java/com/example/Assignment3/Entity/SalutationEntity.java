@@ -31,7 +31,7 @@ public class SalutationEntity {
 	@JoinColumn(name = "genderid", referencedColumnName = "genderid")
 	private GenderEntity genderid;
 
-	@NotNull
+	
 	@Column(name = "activeyn")
 	private Boolean activeyn;
 
